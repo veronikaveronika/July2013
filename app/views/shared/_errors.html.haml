@@ -1,0 +1,7 @@
+- if obj.errors.any?
+  .alert.alert-error
+    %a.close{'data-dismiss' => 'alert', href: "#{}"} ×
+    %h4.alert-heading Warning!
+    %ul
+      - obj.errors.full_messages.each do |msg|
+        %li= msg

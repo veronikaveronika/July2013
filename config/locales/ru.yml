@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Некорректная запись
+      models:
+        user:
+          attributes:
+            email:
+              blank: Не указан Email
+            password:
+              blank: Не указан пароль
+            password_confirmation:
+              confirmation: Поле подтверждения пароля не совпадает с паролем
+
+  errors:
+    messages:
+      not_saved: Не сохранено
