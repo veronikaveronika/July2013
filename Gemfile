@@ -50,3 +50,5 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'devise', '3.0.0'
+
+gem 'bootstrap-datepicker-rails'

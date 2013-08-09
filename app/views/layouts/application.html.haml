@@ -49,10 +49,10 @@
         .span3
           .well.sidebar-nav
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Разделы
+              = nav_item "Семьи", families_path
+              = nav_item "Дети", children_path
+              = nav_item "Родители", parents_path
         .span9
           = bootstrap_flash
 

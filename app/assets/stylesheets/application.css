@@ -10,5 +10,10 @@
  *
  *= require_self
  *= require bootstrap_and_overrides.css.scss
+ *= require bootstrap-datepicker
  *= require_tree .
  */
+
+.well.sidebar-nav {
+ 	padding: 0;
+}

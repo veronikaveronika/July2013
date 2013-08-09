@@ -11,10 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130726110807) do
+ActiveRecord::Schema.define(version: 20130809114406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "children", force: true do |t|
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.string   "first_name"
+    t.string   "short_name"
+    t.string   "sex",         limit: 1
+    t.date     "dob"
+    t.string   "doc"
+    t.string   "doc_number"
+    t.text     "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "family_id"
+  end
+
+  add_index "children", ["family_id"], name: "index_children_on_family_id", using: :btree
+
+  create_table "families", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.text     "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parents", force: true do |t|
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.string   "first_name"
+    t.string   "phone"
+    t.string   "sex"
+    t.date     "dob"
+    t.string   "doc"
+    t.string   "doc_number"
+    t.text     "desc"
+    t.integer  "family_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "parents", ["family_id"], name: "index_parents_on_family_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

@@ -1,0 +1,49 @@
+- model_class = Parent
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:last_name) + ':'
+  %br
+  = @parent.last_name
+%p
+  %strong= model_class.human_attribute_name(:middle_name) + ':'
+  %br
+  = @parent.middle_name
+%p
+  %strong= model_class.human_attribute_name(:first_name) + ':'
+  %br
+  = @parent.first_name
+%p
+  %strong= model_class.human_attribute_name(:phone) + ':'
+  %br
+  = @parent.phone
+%p
+  %strong= model_class.human_attribute_name(:sex) + ':'
+  %br
+  = @parent.sex
+%p
+  %strong= model_class.human_attribute_name(:dob) + ':'
+  %br
+  = @parent.dob
+%p
+  %strong= model_class.human_attribute_name(:doc) + ':'
+  %br
+  = @parent.doc
+%p
+  %strong= model_class.human_attribute_name(:doc_number) + ':'
+  %br
+  = @parent.doc_number
+%p
+  %strong= model_class.human_attribute_name(:desc) + ':'
+  %br
+  = @parent.desc
+%p
+  %strong= model_class.human_attribute_name(:family_id) + ':'
+  %br
+  = @parent.family_id
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), parents_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_parent_path(@parent), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), parent_path(@parent), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
