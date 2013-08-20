@@ -1,4 +1,5 @@
 class ChildrenController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
   # GET /children

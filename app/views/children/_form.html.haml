@@ -22,7 +22,7 @@
   .control-group
     = f.label "Дата Рождения", :class => 'control-label'
     .controls
-      = f.text_field :dob, "data-behaviour" => "datepicker"
+      = f.text_field :dob, "data-behaviour" => "datepicker", "data-date-format" => "yyyy-mm-dd"
   .control-group
     = f.label "Документ", :class => 'control-label'
     .controls
@@ -38,7 +38,7 @@
   .control-group
     = f.label :family_id, :class => 'control-label'
     .controls
-      = f.text_field :family_id, :class => 'text_field'
+      = f.number_field :family_id, :class => 'text_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), children_path, :class => 'btn'

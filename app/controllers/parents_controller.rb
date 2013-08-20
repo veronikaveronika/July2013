@@ -1,4 +1,5 @@
 class ParentsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
   # GET /parents
