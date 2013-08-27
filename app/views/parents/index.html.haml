@@ -16,7 +16,7 @@
       %th= model_class.human_attribute_name(:desc)
       %th= model_class.human_attribute_name(:family_id)
       %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th.span3=t '.actions', :default => t("helpers.actions")
   %tbody
     - @parents.each do |parent|
       %tr
