@@ -168,6 +168,17 @@ ru:
       submit: Сохранить %{model}
       update: Сохранить %{model}
     label:
+      family:
+        name: Фамилия
+        address: Адрес
+        phone: Телефон
+        desc: Дополнительная Информация
+        created_at: Дата Регистрации
+        father: Отец
+        father_id: Отец (ID)
+        mother: Мать
+        mother_id: Мать (ID)
+        created_at: Дата Регистрации
       parent:
         last_name: Фамилия
         middle_name: Отчество
@@ -180,6 +191,19 @@ ru:
         desc: Комментарии
         family_id: Семья(ID)
         created_at: Дата Регистрации
+      child:
+        last_name: Фамилия
+        middle_name: Отчество
+        first_name: Имя
+        short_name: Краткое Имя
+        sex: Пол
+        dob: День Рождения
+        doc: Документ
+        doc_number: Номер Документа
+        desc: Комментарии
+        family_id: Семья(ID)
+        created_at: Дата Регистрации
+        adopted: Приёмный
   number:
     currency:
       format:
@@ -267,9 +291,15 @@ ru:
       <<: *errors
   activerecord:
     models:
-      family: Семья
-      child: Ребёнок
-      parent: Родитель
+      family: 
+        one: Семья
+        other: Семьи
+      child: 
+        one: Ребёнок
+        other: Дети
+      parent: 
+        one: Родитель
+        other: Родители
     attributes:
       parent:
         last_name: Фамилия
@@ -295,12 +325,19 @@ ru:
         desc: Комментарии
         family_id: Семья(ID)
         created_at: Дата Регистрации
+        adopted: Приёмный
       family:
         name: Фамилия
         address: Адрес
         phone: Телефон
         desc: Дополнительная Информация
         created_at: Дата Регистрации
+        father: Отец
+        father_id: Отец (ID)
+        mother: Мать
+        mother_id: Мать (ID)
+        created_at: Дата Регистрации
+
     errors:
       <<: *errors
       models:

@@ -1,6 +1,6 @@
 - model_class = Child
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  %h1=t '.title', :default => model_class.model_name.human(count: 2)
 %table.table.table-striped
   %thead
     %tr
@@ -26,7 +26,7 @@
         %td= child.first_name
         %td= child.short_name
         %td= child.sex
-        %td= child.dob
+        %td=l child.dob
         %td= child.doc
         %td= child.doc_number
         %td= child.desc

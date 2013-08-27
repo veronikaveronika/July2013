@@ -1,23 +1,54 @@
 - model_class = Family
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
+.well
+  %p
+    %strong= model_class.human_attribute_name(:name) + ':'
+    %br
+    = @family.name
+  %p
+    %strong= model_class.human_attribute_name(:father) + ':'
+    %br
+    = @family.father.try :full_name
+  %p
+    %strong= model_class.human_attribute_name(:mother) + ':'
+    %br
+    = @family.mother.try :full_name
+  %p
+    %strong= model_class.human_attribute_name(:address) + ':'
+    %br
+    = @family.address
+  %p
+    %strong= model_class.human_attribute_name(:phone) + ':'
+    %br
+    = @family.phone
+  %p
+    %strong= model_class.human_attribute_name(:desc) + ':'
+    %br
+    = @family.desc
 
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @family.name
-%p
-  %strong= model_class.human_attribute_name(:address) + ':'
-  %br
-  = @family.address
-%p
-  %strong= model_class.human_attribute_name(:phone) + ':'
-  %br
-  = @family.phone
-%p
-  %strong= model_class.human_attribute_name(:desc) + ':'
-  %br
-  = @family.desc
+  %p
+    %strong Детей в семье:
+    %br
+    = @family.children.count
+    (в том числе приёмных: #{@family.children.adopted.count})
+
+.well
+  %table.table.table-bordered
+    %caption Список Детей
+    %thead
+      %tr
+        %th Код
+        %th Имя
+        %th Возраст
+        %th Приёмный?
+    %tbody
+      - @family.children.each do |c|
+        %tr
+          %td= c.id
+          %td= c.full_name
+          %td= c.age
+          %td= check_box_tag "adopted","1", c.adopted?
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), families_path, :class => 'btn'
