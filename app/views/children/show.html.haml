@@ -7,11 +7,11 @@
   %br
   = @child.last_name
 %p
-  %strong= model_class.human_attribute_name(:middle_name) + ':'
+  %strong= model_class.human_attribute_name(:first_name) + ':'
   %br
   = @child.middle_name
 %p
-  %strong= model_class.human_attribute_name(:first_name) + ':'
+  %strong= model_class.human_attribute_name(:middle_name) + ':'
   %br
   = @child.first_name
 %p
@@ -46,6 +46,10 @@
   %strong= model_class.human_attribute_name(:family_id) + ':'
   %br
   = @child.family_id
+%p
+  %strong= model_class.human_attribute_name(:created_at) + ':'
+  %br
+  = @child.created_at
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), children_path, :class => 'btn'

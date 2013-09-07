@@ -7,10 +7,10 @@ class Child < ActiveRecord::Base
 
   def full_name; "#{last_name} #{first_name} #{middle_name}" end
 
-	def age
-		unless self.dob.nil?
-		  now = Time.now.utc.to_date
-		  now.year - self.dob.year - (self.dob.to_date.change(:year => now.year) > now ? 1 : 0)
-	  	end
-	end
+  def age
+    unless self.dob.nil?
+      now = Time.now.utc.to_date
+      now.year - self.dob.year - (self.dob.to_date.change(:year => now.year) > now ? 1 : 0)
+      end
+  end
 end
