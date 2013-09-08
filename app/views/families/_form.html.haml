@@ -3,16 +3,20 @@
     = f.label :name, :class => 'control-label'
     .controls
       = f.text_field :name, :class => 'text_field'
-
-  .control-group
-    = f.label :father, :class => 'control-label'
-    .controls
-      = f.number_field :father_id, :class => 'text_field'
-
-  .control-group
-    = f.label :mother, :class => 'control-label'
-    .controls
-      = f.number_field :mother_id, :class => 'text_field'
+    %br
+      %br
+      %table
+        %tr
+          %td
+            .control-group
+              = f.label :father, :class => 'control-label'
+              .controls
+                = f.number_field :father_id, :class => 'text_field'
+          %td        
+            .control-group
+              = f.label :mother, :class => 'control-label'
+              .controls
+                = f.number_field :mother_id, :class => 'text_field'
 
   .control-group
     = f.label :address, :class => 'control-label'
@@ -26,6 +30,23 @@
     = f.label :desc, :class => 'control-label'
     .controls
       = f.text_area :desc, :class => 'text_field'
+
+    .well
+      %table.table.table-bordered
+        %caption Список Детей
+        %thead
+          %tr
+            %th Код
+            %th Имя
+            %th Возраст
+            %th Приёмный?
+        %tbody
+          - @family.children.each do |c|
+            %tr
+              %td= c.id
+              %td= c.full_name
+              %td= c.age
+              %td= check_box_tag "adopted","1", c.adopted?
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), families_path, :class => 'btn'
