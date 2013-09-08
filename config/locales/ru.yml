@@ -302,6 +302,7 @@ ru:
         other: Родители
     attributes:
       parent:
+        fio: ФИО
         last_name: Фамилия
         middle_name: Отчество
         first_name: Имя
@@ -314,6 +315,7 @@ ru:
         family_id: Семья(ID)
         created_at: Дата Регистрации
       child:
+        fio: ФИО
         last_name: Фамилия
         middle_name: Отчество
         first_name: Имя

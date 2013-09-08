@@ -5,14 +5,12 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:last_name)
-      %th= model_class.human_attribute_name(:first_name)
-      %th= model_class.human_attribute_name(:middle_name)
+      %th= model_class.human_attribute_name(:fio)
+
       %th= model_class.human_attribute_name(:short_name)
-      %th= model_class.human_attribute_name(:sex)
+      
       %th= model_class.human_attribute_name(:dob)
-      %th= model_class.human_attribute_name(:doc)
-      %th= model_class.human_attribute_name(:doc_number)
+
       %th= model_class.human_attribute_name(:desc)
       %th= model_class.human_attribute_name(:family_id)
       
@@ -21,14 +19,12 @@
     - @children.each do |child|
       %tr
         %td= link_to child.id, child_path(child)
-        %td= child.last_name
-        %td= child.first_name
-        %td= child.middle_name
+        %td= link_to child.last_name+" "+child.first_name+" "+child.middle_name, child_path(child)
+     
         %td= child.short_name
-        %td= child.sex
+        
         %td=l child.dob
-        %td= child.doc
-        %td= child.doc_number
+
         %td= child.desc
         %td= child.family_id
         
