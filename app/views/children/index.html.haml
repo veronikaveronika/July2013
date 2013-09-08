@@ -9,9 +9,9 @@
 
       %th= model_class.human_attribute_name(:short_name)
       
-      %th= model_class.human_attribute_name(:dob)
+      %th= model_class.human_attribute_name(:age)
 
-      %th= model_class.human_attribute_name(:desc)
+      %th= model_class.human_attribute_name(:adopted)
       %th= model_class.human_attribute_name(:family_id)
       
       %th.span3=t '.actions', :default => t("helpers.actions")
@@ -19,13 +19,13 @@
     - @children.each do |child|
       %tr
         %td= link_to child.id, child_path(child)
-        %td= link_to child.last_name+" "+child.first_name+" "+child.middle_name, child_path(child)
+        %td= link_to child.full_name, child_path(child)
      
         %td= child.short_name
         
-        %td=l child.dob
+        %td=child.age
 
-        %td= child.desc
+        %td= child.adopted
         %td= child.family_id
         
         %td

@@ -10,9 +10,9 @@
       
       %th= model_class.human_attribute_name(:phone)
       
-      %th= model_class.human_attribute_name(:dob)
+      %th= model_class.human_attribute_name(:age)
      
-      %th= model_class.human_attribute_name(:desc)
+      
       %th= model_class.human_attribute_name(:family_id)
       
       %th.span3=t '.actions', :default => t("helpers.actions")
@@ -21,14 +21,14 @@
 
       %tr
         %td= link_to parent.id, parent_path(parent)
-        %td= link_to parent.last_name+" "+parent.first_name+" "+parent.middle_name, parent_path(parent)
         
+        %td=link_to parent.full_name, parent_path(parent)
         
         %td= parent.phone
         
-        %td= parent.dob
+        %td= parent.age
        
-        %td= parent.desc
+        
         %td= parent.family_id
         
         %td

@@ -314,6 +314,7 @@ ru:
         desc: Комментарии
         family_id: Семья(ID)
         created_at: Дата Регистрации
+        age: Возраст
       child:
         fio: ФИО
         last_name: Фамилия
@@ -328,6 +329,7 @@ ru:
         family_id: Семья(ID)
         created_at: Дата Регистрации
         adopted: Приёмный
+        age: Возраст
       family:
         name: Фамилия
         address: Адрес
