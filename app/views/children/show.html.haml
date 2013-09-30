@@ -3,17 +3,9 @@
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:last_name) + ':'
-  %br
-  = @child.last_name
-%p
-  %strong= model_class.human_attribute_name(:first_name) + ':'
-  %br
-  = @child.middle_name
-%p
-  %strong= model_class.human_attribute_name(:middle_name) + ':'
-  %br
-  = @child.first_name
+  %strong= model_class.human_attribute_name(:fio) + ':'
+
+  = @child.last_name + ' ' + @child.first_name + ' ' + @child.middle_name
 %p
   %strong= model_class.human_attribute_name(:short_name) + ':'
   %br

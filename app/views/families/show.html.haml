@@ -6,33 +6,25 @@
     %strong= model_class.human_attribute_name(:name) + ':'
   
     = @family.name
+    &nbsp&nbsp&nbsp&nbsp
+    %strong= model_class.human_attribute_name(:phone) + ':'
+    = @family.phone
   %p
     %strong= model_class.human_attribute_name(:father) + ':'
-    %br
-    = @family.father.try :full_name
-  %p
+    =@family.father.try :full_name
+    &nbsp&nbsp
     %strong= model_class.human_attribute_name(:mother) + ':'
-    %br
     = @family.mother.try :full_name
   %p
     %strong= model_class.human_attribute_name(:address) + ':'
-    %br
     = @family.address
   %p
-    %strong= model_class.human_attribute_name(:phone) + ':'
-    %br
-    = @family.phone
-  %p
-    %strong= model_class.human_attribute_name(:desc) + ':'
-    %br
-    = @family.desc
-
-  %p
     %strong Детей в семье:
-    %br
     = @family.children.count
     (в том числе приёмных: #{@family.children.adopted.count})
-
+  %p
+    %strong= model_class.human_attribute_name(:desc) + ':'
+    = @family.desc
 .well
   %table.table.table-bordered
     %caption Список Детей
