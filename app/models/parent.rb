@@ -1,9 +1,13 @@
 class Parent < ActiveRecord::Base
   belongs_to :family
   validates_inclusion_of :sex, in: %w( m f )
-  validates_presence_of :dob
+  validates_presence_of :dob, :first_name, :last_name, :doc_number
 
   def full_name; "#{last_name} #{first_name} #{middle_name}" end
+  def family_name
+    self.family.name if self.family
+  end
+
   def age
     unless self.dob.nil?
       now = Time.now.utc.to_date

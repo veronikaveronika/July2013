@@ -42,7 +42,8 @@
   .control-group
     = f.label :family_id, :class => 'control-label'
     .controls
-      = f.number_field :family_id, :class => 'text_field'
+      =# f.number_field :family_id, :class => 'text_field'
+      = f.hidden_field :family_id, style: 'width: 220px', title: @child.family_name, autocompletion_path: families_path
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), children_path, :class => 'btn'
