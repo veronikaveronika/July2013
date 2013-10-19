@@ -11,12 +11,14 @@
             .control-group
               = f.label :father, :class => 'control-label'
               .controls
-                = f.number_field :father_id, :class => 'text_field'
+                =# f.number_field :father_id, :class => 'text_field'
+                = f.hidden_field :father_id, style: 'width: 220px', title: @family.father_full_name, autocompletion_path: parents_path
           %td        
             .control-group
               = f.label :mother, :class => 'control-label'
               .controls
-                = f.number_field :mother_id, :class => 'text_field'
+                =# f.number_field :mother_id, :class => 'text_field'
+                = f.hidden_field :mother_id, style: 'width: 220px', title: @family.mother_full_name, autocompletion_path: parents_path
 
   .control-group
     = f.label :address, :class => 'control-label'

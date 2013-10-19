@@ -5,7 +5,17 @@ class ParentsController < ApplicationController
   # GET /parents
   # GET /parents.json
   def index
-    @parents = Parent.all
+    @parents = Parent.scoped
+
+    query = (params[:q] || '').strip
+    if request.xhr?
+      unless query.empty?
+        @parents.where!('last_name ILIKE ?', "%#{query}%")
+      else
+        @parents = []
+      end
+      return render json: @parents.map {|s| {id: s.id, text: s.full_name}}
+    end
   end
 
   # GET /parents/1

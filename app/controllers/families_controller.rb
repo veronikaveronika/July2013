@@ -5,7 +5,17 @@ class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json
   def index
-    @families = Family.all
+    @families = Family.scoped
+
+    query = (params[:q] || '').strip
+    if request.xhr?
+      unless query.empty?
+        @families.where!('name ILIKE ?', "%#{query}%")
+      else
+        @families = []
+      end
+      return render json: @families.map {|s| {id: s.id, text: s.name}}
+    end
   end
 
   # GET /families/1
